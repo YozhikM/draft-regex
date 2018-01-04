@@ -1,0 +1,35 @@
+{
+  "name": "draft-regex",
+  "version": "1.0.0",
+  "description": "Plugin for checking text with regular expressions",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "parcel build src/index.js -d build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YozhikM/draft-regex.git"
+  },
+  "keywords": [
+    "draft",
+    "regex"
+  ],
+  "author": "Stanislav Botev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YozhikM/draft-regex/issues"
+  },
+  "homepage": "https://github.com/YozhikM/draft-regex#readme",
+  "dependencies": {
+    "babel-preset-env": "^1.6.1",
+    "draft-js": "^0.10.4",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-flow": "^6.23.0",
+    "flow-bin": "^0.62.0"
+  }
+}
