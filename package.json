@@ -5,7 +5,7 @@
   "main": "build/index.js",
   "scripts": {
     "build": "parcel build src/index.js -d build",
-    "test": "echo \"Error: no test specified\/"
+    "test": "echo"
   },
   "repository": {
     "type": "git",
