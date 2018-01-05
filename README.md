@@ -1,6 +1,8 @@
 
 # Draft Regex
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/YozhikM/draft-regex.svg)](https://greenkeeper.io/)
+
 These plugins are written for Draft.js and React to improve TextEditor capabilities.
 
 ## In details
