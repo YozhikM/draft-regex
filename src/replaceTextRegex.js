@@ -7,6 +7,7 @@ import {
   ContentState,
   ContentBlock,
 } from 'draft-js';
+import { typoRules } from './rules';
 
 export type Rule = { reg: RegExp, shift: string };
 
@@ -40,7 +41,7 @@ export function createContentBlock(
     key?: string,
     type?: string,
     characterList?: Array<CharacterMetadata>,
-  }
+  },
 ): ContentBlock {
   const { text, key, type, characterList } = options || {};
 
@@ -62,7 +63,11 @@ function prepareOptionableRules(options: Options): Array<Rule> {
   return [];
 }
 
-export default function replaceTextRegex(editorState: EditorState, rulesArray: Array<Rule>, options?: Options): EditorState {
+export default function replaceTextRegex(
+  editorState: EditorState,
+  rulesArray?: Array<Rule> = typoRules,
+  options?: Options = { extraSpaces: true },
+): EditorState {
   const CS = editorState.getCurrentContent();
   const CSMap = CS.getBlockMap();
   const CSText = CS.getPlainText();

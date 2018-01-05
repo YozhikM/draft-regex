@@ -1,11 +1,12 @@
 {
   "name": "draft-regex",
-  "version": "1.0.3",
+  "version": "1.0.7",
   "description": "Plugin for checking text with regular expressions",
   "main": "build/index.js",
   "scripts": {
     "start": "parcel app/index.html",
-    "build": "parcel build src/index.js -d build",
+    "build": "babel -d build/ src/",
+    "prepublish": "npm run build",
     "test": "echo"
   },
   "repository": {
