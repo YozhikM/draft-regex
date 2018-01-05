@@ -47,10 +47,11 @@ const typoRules: Array<Rule> = [
 ];
 
 const optionRules: OptionsObj = {
-  spaces: [
-    { reg: new RegExp(/\s{2,}/), shift: ' ' }, // "Лишние пробелы"
-    { reg: new RegExp(/(,|\.)(\S)/g), shift: '$1 $2' }, // "Пробелы после запятой и точки"
+  extraSpaces: [
+    { reg: new RegExp(/\s+/g), shift: ' ' }, // "Лишние пробелы"
+    { reg: new RegExp(/(^\s*)|(\s*)$/g), shift: '' },
   ],
+  spacesAfterPunctuationMarks: [{ reg: new RegExp(/(,|\.)(\S)/g), shift: '$1 $2' }],
 };
 
 function createSelectionState(key: string, start: number = 0, end?: number): SelectionState {
@@ -62,7 +63,7 @@ function createSelectionState(key: string, start: number = 0, end?: number): Sel
   });
 }
 
-function createContentBlock(
+export function createContentBlock(
   block: ContentBlock,
   options?: {
     text?: string,

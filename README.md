@@ -1,8 +1,6 @@
 
 # Draft Regex
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/YozhikM/draft-regex.svg)](https://greenkeeper.io/)
-
 These plugins are written for Draft.js and React to improve TextEditor capabilities.
 
 ## Usage
@@ -23,3 +21,6 @@ Prevents the ability to add blank lines more than 3 (varies in settings).
 
 #### `replaceTextRegex`
 Apply regular expressions to the entire text, in the process of typing or after copy/pasting text.
+
+#### `clearPastedStyle`
+Clears styles of copy/pasted text to those that you have.
