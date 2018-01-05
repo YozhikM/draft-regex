@@ -1,9 +1,10 @@
 {
   "name": "draft-regex",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Plugin for checking text with regular expressions",
   "main": "build/index.js",
   "scripts": {
+    "start": "parcel app/index.html",
     "build": "parcel build src/index.js -d build",
     "test": "echo"
   },
@@ -22,14 +23,17 @@
   },
   "homepage": "https://github.com/YozhikM/draft-regex#readme",
   "dependencies": {
-    "babel-preset-env": "^1.6.1",
     "draft-js": "^0.10.4",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "styled-components": "^2.4.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-flow": "^6.23.0",
-    "flow-bin": "^0.62.0"
+    "babel-preset-react": "^6.24.1",
+    "flow-bin": "^0.62.0",
+    "parcel-bundler": "^1.4.1"
   }
 }
