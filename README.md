@@ -3,7 +3,7 @@
 
 These plugins are written for Draft.js and React to improve TextEditor capabilities.
 
-## Usage
+## In details
 
 1. `git clone https://github.com/YozhikM/draft-regex.git`
 2. `npm install` *or* `yarn install`
@@ -12,9 +12,13 @@ These plugins are written for Draft.js and React to improve TextEditor capabilit
 
 To use static typing, make sure [that you have installed Flow](https://flow.org/en/docs/install).
 
+## How to use
+
+![Draft Regex](https://imgur.com/a/MC8BS)
+
 ## API
 
-All plugin as an argument are taken by EditorState and returned it.
+All plugin as an argument are taken by EditorState and options and returned EditorState.
 
 #### `clearEmptyBlock`
 Prevents the ability to add blank lines more than 3 (varies in settings).
