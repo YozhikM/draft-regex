@@ -14,7 +14,7 @@ To use static typing, make sure [that you have installed Flow](https://flow.org/
 
 ## How to use
 
-![Draft Regex](https://imgur.com/a/MC8BS)
+![Draft Regex](https://i.imgur.com/xzQyZpj.png)
 
 ## API
 
