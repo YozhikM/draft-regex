@@ -7,8 +7,8 @@ These plugins are written for Draft.js and React to improve TextEditor capabilit
 
 1. `git clone https://github.com/YozhikM/draft-regex.git`
 2. `npm install` *or* `yarn install`
-3. `npm start` *or* `yarn start`
-4. `npm test` *or* `yarn test`
+3. `npm start` *or* `yarn start` for demo
+4. `npm run build` *or* `yarn build` for build of modules
 
 To use static typing, make sure [that you have installed Flow](https://flow.org/en/docs/install).
 

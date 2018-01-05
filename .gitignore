@@ -7,7 +7,6 @@
 
 # production
 /build
-/app
 /dist
 
 # misc
