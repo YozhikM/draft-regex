@@ -18,7 +18,7 @@ function getEmptyCountAfter(contentState: ContentState, key: string): number {
   return 0;
 }
 
-export default function clearEmptyBlocks(editorState: EditorState): EditorState {
+export default function clearEmptyBlocks(editorState: EditorState, maxEmptyLines?: number = 2): EditorState {
   const CS = editorState.getCurrentContent();
   const SS = editorState.getSelection();
   const currentKey = SS.getFocusKey();
@@ -27,16 +27,14 @@ export default function clearEmptyBlocks(editorState: EditorState): EditorState 
   const emptyBefore = getEmptyCountBefore(CS, currentKey);
   const emptyAfter = getEmptyCountAfter(CS, currentKey);
 
-  const MAX_EMPTY_LINES = 2;
-
   // Be carefull, all checks are very important. And its order of checks also important.
   // 1. Check hole above current line
   // 2. Check hole below current line
   // 3. Check hole between two non-empty lines
   if (
-    emptyBefore > MAX_EMPTY_LINES ||
-    emptyAfter > MAX_EMPTY_LINES ||
-    (emptyBefore + emptyAfter >= MAX_EMPTY_LINES &&
+    emptyBefore > maxEmptyLines ||
+    emptyAfter > maxEmptyLines ||
+    (emptyBefore + emptyAfter >= maxEmptyLines &&
       currentBlock.getText() === '' &&
       currentBlock !== CS.getLastBlock())
   ) {

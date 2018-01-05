@@ -24,13 +24,27 @@ All plugin as an argument are taken by EditorState and options and returned Edit
 
 #### `clearEmptyBlock`
 Prevents the ability to add blank lines more than 3 (varies in settings).
+A second argument can take a number for remove blank lines (number + 1).
+
+`function clearEmptyBlocks(editorState: EditorState, maxEmptyLines?: number = 2): EditorState`
 
 #### `replaceTextRegex`
 Apply regular expressions to the entire text, in the process of typing or after copy/pasting text.
+A second argument can take an array of rules. TypoRules is a set of basic rules that you can not use.
+A third argument can take an object that can contain options, which you can expand to use the plugin is very flexible.
+ExtraSpaces are simple regular expressions that forbid doing more than one space in a row.
+
+`function replaceTextRegex(
+  editorState: EditorState,
+  rulesArray?: Array<Rule> = typoRules,
+  options?: Options = { extraSpaces: true }
+): EditorState`
+
+The rule looks like this: `{ reg: new RegExp(), shift: '' }`
 
 #### `clearPastedStyle`
 Clears styles of copy/pasted text to those that you have.
-A second object can take an object that can contain options
+A second argument can take an object that can contain options.
 
 `function clearPastedStyle(
   editorState: EditorState,
@@ -40,5 +54,5 @@ A second object can take an object that can contain options
     shiftHeader?: string,
     replaceList?: boolean,
     shiftList?: string,
-  },
+  }
 ): EditorState`

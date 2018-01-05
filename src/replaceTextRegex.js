@@ -19,7 +19,7 @@ type OptionsObj = { [key: string]: Array<Rule> };
 
 const optionRules: OptionsObj = {
   extraSpaces: [
-    { reg: new RegExp(/\s+/g), shift: ' ' }, // "Лишние пробелы"
+    { reg: new RegExp(/\s+/g), shift: ' ' }, // "Extra spaces"
     { reg: new RegExp(/(^\s*)|(\s*)$/g), shift: '' },
   ],
   spacesAfterPunctuationMarks: [{ reg: new RegExp(/(,|\.)(\S)/g), shift: '$1 $2' }],
