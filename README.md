@@ -30,3 +30,15 @@ Apply regular expressions to the entire text, in the process of typing or after 
 
 #### `clearPastedStyle`
 Clears styles of copy/pasted text to those that you have.
+A second object can take an object that can contain options
+
+`function clearPastedStyle(
+  editorState: EditorState,
+  options?: {
+    blockTypes?: Array<string>,
+    replaceHeader?: boolean,
+    shiftHeader?: string,
+    replaceList?: boolean,
+    shiftList?: string,
+  },
+): EditorState`
