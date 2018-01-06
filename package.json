@@ -33,7 +33,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
-    "flow-bin": "^0.62.0",
+    "flow-bin": "^0.63.0",
     "parcel-bundler": "^1.4.1"
   }
 }
