@@ -21,6 +21,7 @@ export default function clearPastedStyle(
     if (blockTypes && blockTypes.indexOf(block.type) === -1) {
       return createContentBlock(block, { type: 'unstyled' });
     }
+	
     if (replaceHeader && block.type.slice(0, 6) === 'header') {
       return createContentBlock(block, { type: shiftHeader });
     }
@@ -28,7 +29,10 @@ export default function clearPastedStyle(
     if (replaceList && block.type.slice(-4) === 'item') {
       return createContentBlock(block, { type: shiftList });
     }
-    return block;
+	
+    if (!blockTypes) return createContentBlock(block, { type: 'unstyled' });
+	
+	return block;
   });
   const newCS: ContentState = new ContentState({ blockMap });
   const newEditorState = EditorState.createWithContent(newCS);
