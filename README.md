@@ -7,12 +7,17 @@ These plugins are written for Draft.js and React to improve TextEditor capabilit
 
 To use static typing, make sure [that you have installed Flow](https://flow.org/en/docs/install).
 
-## How to use
+## Getting started
 
-`npm install draft-regex`
+```
+npm install draft-regex
+```
 or
-`yarn add draft-regex`
-***
+```
+yarn add draft-regex
+```
+
+## How to use
 
 ![Draft Regex](https://i.imgur.com/xzQyZpj.png)
 
@@ -39,7 +44,8 @@ A third argument can take an object that can contain `options`, which you can ex
 `extraSpaces` are simple regular expressions that forbid doing more than one space in a row.
 
 
-```function replaceTextRegex(
+```
+function replaceTextRegex(
   editorState: EditorState,
   rulesArray?: Array<Rule> = typoRules,
   options?: Options = { extraSpaces: true }
@@ -60,7 +66,8 @@ If you do not want to use all six kinds of headings, you can bring the headers t
 The same applies to lists.
 
 
-```function clearPastedStyle(
+```
+function clearPastedStyle(
   editorState: EditorState,
   options?: {
     blockTypes?: Array<string>,
