@@ -12,6 +12,7 @@ To use static typing, make sure [that you have installed Flow](https://flow.org/
 `npm install draft-regex`
 or
 `yarn add draft-regex`
+***
 
 ![Draft Regex](https://i.imgur.com/xzQyZpj.png)
 
@@ -38,11 +39,12 @@ A third argument can take an object that can contain `options`, which you can ex
 `extraSpaces` are simple regular expressions that forbid doing more than one space in a row.
 
 
-`function replaceTextRegex(
+```function replaceTextRegex(
   editorState: EditorState,
   rulesArray?: Array<Rule> = typoRules,
   options?: Options = { extraSpaces: true }
-): EditorState`
+): EditorState
+```
 
 The rule looks like this: `{ reg: new RegExp(), shift: '' }`
 
@@ -58,7 +60,7 @@ If you do not want to use all six kinds of headings, you can bring the headers t
 The same applies to lists.
 
 
-`function clearPastedStyle(
+```function clearPastedStyle(
   editorState: EditorState,
   options?: {
     blockTypes?: Array<string>,
@@ -67,4 +69,5 @@ The same applies to lists.
     replaceList?: boolean,
     shiftList?: string,
   }
-): EditorState`
+): EditorState
+```
