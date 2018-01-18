@@ -11,7 +11,7 @@ export default function clearPastedStyle(
     shiftHeader?: string,
     replaceList?: boolean,
     shiftList?: string,
-  },
+  }
 ): EditorState {
   const CS = editorState.getCurrentContent();
   const SS = editorState.getSelection();
@@ -21,7 +21,7 @@ export default function clearPastedStyle(
     if (blockTypes && blockTypes.indexOf(block.type) === -1) {
       return createContentBlock(block, { type: 'unstyled' });
     }
-	
+
     if (replaceHeader && block.type.slice(0, 6) === 'header') {
       return createContentBlock(block, { type: shiftHeader });
     }
@@ -29,10 +29,10 @@ export default function clearPastedStyle(
     if (replaceList && block.type.slice(-4) === 'item') {
       return createContentBlock(block, { type: shiftList });
     }
-	
+
     if (!blockTypes) return createContentBlock(block, { type: 'unstyled' });
-	
-	return block;
+
+    return block;
   });
   const newCS: ContentState = new ContentState({ blockMap });
   const newEditorState = EditorState.createWithContent(newCS);

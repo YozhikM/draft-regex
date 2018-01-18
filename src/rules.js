@@ -2,7 +2,7 @@
 
 import type { Rule } from './replaceTextRegex';
 
-export const typoRules: Array<Rule> = [
+const typoRules: Array<Rule> = [
   { reg: new RegExp(/"([^"]+)"/g), shift: '«$1»' },
   { reg: new RegExp(/(\() +/g), shift: '(' }, // "Удаление лишних пробелов
   { reg: new RegExp(/ +\)/g), shift: ')' }, // после открывающей и перед закрывающей скобкой"
@@ -31,3 +31,5 @@ export const typoRules: Array<Rule> = [
   { reg: new RegExp(/[«'"„“]([^"'“]*(?:«»[^'"“]*)*)['"»“„]/g), shift: '«$1»' },
   // { reg: new RegExp(), shift: '' },
 ];
+
+export default typoRules;

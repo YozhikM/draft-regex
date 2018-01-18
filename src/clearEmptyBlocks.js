@@ -18,7 +18,10 @@ function getEmptyCountAfter(contentState: ContentState, key: string): number {
   return 0;
 }
 
-export default function clearEmptyBlocks(editorState: EditorState, maxEmptyLines?: number = 2): EditorState {
+export default function clearEmptyBlocks(
+  editorState: EditorState,
+  maxEmptyLines?: number = 2
+): EditorState {
   const CS = editorState.getCurrentContent();
   const SS = editorState.getSelection();
   const currentKey = SS.getFocusKey();
