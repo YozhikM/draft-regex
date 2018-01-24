@@ -28,25 +28,28 @@ import {
   replaceTextRegex
 } from "draft-regex";
 
-class MyEditor extends React.Component {
-  constructor(props) {
-    super(props);
+type State = {
+  editorState: EditorState
+};
 
-    this.onBlur = this._editor.blur();
-    this.state = {
-      editorState: EditorState.createEmpty()
-    };
-  }
+class MyEditor extends React.Component<void, State> {
+  state: State = {
+    editorState: EditorState.createEmpty()
+  };
 
-  onChange = editorState => {
+  onChange = (editorState: EditorState) => {
     this.setState({ editorState: clearEmptyBlocks(editorState) });
   };
 
-  handlePastedText = (text, html, editorState) => {
+  handlePastedText = (
+    text: ?string,
+    html: ?string,
+    editorState: EditorState
+  ) => {
     this.setState({ editorState: clearPastedStyle(editorState) });
   };
 
-  onBlur = e => {
+  onBlur = () => {
     const { editorState } = this.state;
     this.setState({ editorState: replaceTextRegex(editorState) });
   };
@@ -54,15 +57,16 @@ class MyEditor extends React.Component {
   render() {
     const { editorState } = this.state;
     return (
-      <Editor
-        ref={ref => (this._editor = ref)}
-        editorState={editorState}
-        handlePastedText={this.handlePastedText}
-      />
+      <div onBlur={this.onBlur}>
+        <Editor
+          ref={ref => (this._editor = ref)}
+          editorState={editorState}
+          handlePastedText={this.handlePastedText}
+        />
+      </div>
     );
   }
 }
-
 ````
 
 ## API
