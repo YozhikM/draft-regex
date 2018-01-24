@@ -60,6 +60,7 @@ class MyEditor extends React.Component<void, State> {
       <div onBlur={this.onBlur}>
         <Editor
           editorState={editorState}
+          onChange={this.onChange}
           handlePastedText={this.handlePastedText}
         />
       </div>
