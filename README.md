@@ -59,7 +59,6 @@ class MyEditor extends React.Component<void, State> {
     return (
       <div onBlur={this.onBlur}>
         <Editor
-          ref={ref => (this._editor = ref)}
           editorState={editorState}
           handlePastedText={this.handlePastedText}
         />
