@@ -31,7 +31,9 @@ Prevents the ability to add blank lines more than 3 (varies in settings).
 
 A second argument can take a `number` for remove blank lines (number + 1).
 
-`function clearEmptyBlocks(editorState: EditorState, maxEmptyLines?: number = 2): EditorState`
+````js
+function clearEmptyBlocks(editorState: EditorState, maxEmptyLines?: number = 2): EditorState
+````
 
 ### replaceTextRegex
 
@@ -44,13 +46,13 @@ A third argument can take an object that can contain `options`, which you can ex
 `extraSpaces` are simple regular expressions that forbid doing more than one space in a row.
 
 
-```
+````js
 function replaceTextRegex(
   editorState: EditorState,
   rulesArray?: Array<Rule> = typoRules,
   options?: Options = { extraSpaces: true }
 ): EditorState
-```
+````
 
 The rule looks like this: `{ reg: new RegExp(), shift: '' }`
 
@@ -66,7 +68,7 @@ If you do not want to use all six kinds of headings, you can bring the headers t
 The same applies to lists.
 
 
-```
+````js
 function clearPastedStyle(
   editorState: EditorState,
   options?: {
@@ -77,4 +79,4 @@ function clearPastedStyle(
     shiftList?: string,
   }
 ): EditorState
-```
+````
