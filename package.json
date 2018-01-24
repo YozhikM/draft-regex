@@ -1,11 +1,11 @@
 {
   "name": "draft-regex",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Plugin for checking text with regular expressions",
   "main": "index.js",
   "scripts": {
     "start": "parcel app/index.html",
-    "build": "babel src -o index.js --source-maps",
+    "build": "babel src -d build",
     "prepublish": "npm run build",
     "lint": "./node_modules/.bin/eslint src/"
   },
