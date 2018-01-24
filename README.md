@@ -83,4 +83,4 @@ function clearPastedStyle(
 
 ## Hints
 
-To improve performance, use `clearPastedStyle` to `handlePastedStyle` method, and `replaceTextRegex` to save the text editor.
+To improve performance, use `clearPastedStyle` to `handlePastedText` method, and `replaceTextRegex` to save the text editor.
