@@ -9,7 +9,6 @@
 /build
 /dist
 index
-index.js.map
 
 # misc
 .DS_Store
