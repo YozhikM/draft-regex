@@ -80,3 +80,7 @@ function clearPastedStyle(
   }
 ): EditorState
 ````
+
+## Hints
+
+To improve performance, use `clearPastedStyle` to `handlePastedStyle` method, and `replaceTextRegex` to save the text editor.
