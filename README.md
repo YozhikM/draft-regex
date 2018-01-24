@@ -19,13 +19,57 @@ yarn add draft-regex
 
 ## How to use
 
-![Draft Regex](https://i.imgur.com/xzQyZpj.png)
+````js
+import * as React from "react";
+import { EditorState, Editor } from "draft-js";
+import {
+  clearEmptyBlocks,
+  clearPastedStyle,
+  replaceTextRegex
+} from "draft-regex";
+
+class MyEditor extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.onBlur = this._editor.blur();
+    this.state = {
+      editorState: EditorState.createEmpty()
+    };
+  }
+
+  onChange = editorState => {
+    this.setState({ editorState: clearEmptyBlocks(editorState) });
+  };
+
+  handlePastedText = (text, html, editorState) => {
+    this.setState({ editorState: clearPastedStyle(editorState) });
+  };
+
+  onBlur = e => {
+    const { editorState } = this.state;
+    this.setState({ editorState: replaceTextRegex(editorState) });
+  };
+
+  render() {
+    const { editorState } = this.state;
+    return (
+      <Editor
+        ref={ref => (this._editor = ref)}
+        editorState={editorState}
+        handlePastedText={this.handlePastedText}
+      />
+    );
+  }
+}
+
+````
 
 ## API
 
 All plugin as an argument are taken by EditorState and options and returned EditorState.
 
-### clearEmptyBlock
+### clearEmptyBlocks
 
 Prevents the ability to add blank lines more than 3 (varies in settings).
 
