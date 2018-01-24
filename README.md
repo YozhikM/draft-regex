@@ -49,7 +49,7 @@ class MyEditor extends React.Component<void, State> {
     this.setState({ editorState: clearPastedStyle(editorState) });
   };
 
-  onBlur = () => {
+  onSave = () => {
     const { editorState } = this.state;
     this.setState({ editorState: replaceTextRegex(editorState) });
   };
@@ -57,13 +57,14 @@ class MyEditor extends React.Component<void, State> {
   render() {
     const { editorState } = this.state;
     return (
-      <div onBlur={this.onBlur}>
+      <>
         <Editor
           editorState={editorState}
           onChange={this.onChange}
           handlePastedText={this.handlePastedText}
         />
-      </div>
+        <button onClick={this.onSave}>Save</button>
+      </>
     );
   }
 }
