@@ -113,6 +113,8 @@ A second argument can take an object that can contain `options`.
 
 `blockTypes` is an array of strings that contains all the types of blocks that you use in your editor. This is useful if you want to clear all styles, except those you can already ask yourself.
 
+A list of all types can be found [here](https://draftjs.org/docs/api-reference-content-block.html#content).
+
 If you do not want to use all six kinds of headings, you can bring the headers to the same view using `shiftHeader`.
 
 The same applies to lists.
