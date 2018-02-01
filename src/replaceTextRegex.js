@@ -8,7 +8,7 @@ import {
   ContentBlock,
 } from 'draft-js';
 
-export type Rule = { reg: RegExp, shift: string };
+type Rule = { reg: RegExp, shift: string };
 
 type Options = {
   [key: string]: boolean,
@@ -17,9 +17,10 @@ type Options = {
 type OptionsObj = { [key: string]: Array<Rule> };
 
 const typoRules: Array<Rule> = [
-  { reg: new RegExp(/"([^"]+)"/g), shift: '«$1»' }, // меняет кавычки на елочки
-  { reg: new RegExp(/\s+/g), shift: ' ' }, // удаляет лишние пробелы
-  { reg: new RegExp(/\[^!?:;,.…] +[A-ZА-Я]/g), shift: '$1 $2' }, // удаляет лишние пробелы после пунктуации
+  { reg: new RegExp(/"([^"]+)"/g), shift: '«$1»' }, // меняем кавычки на елочки
+  { reg: new RegExp(/\s+/g), shift: ' ' }, // удаляем лишние пробелы
+  { reg: new RegExp(/(^|[^!?:;,.…]) ([!?:;,.…])(?!\))/g), shift: '$1$2' }, // удаляем лишние пробелы перед пунктуацией
+  { reg: new RegExp(/([А-Я][,.!?;…–])+?([А-Я])/gi), shift: '$1 $2' }, // ставим пробелы после пунктуации
 ];
 
 const optionRules: OptionsObj = {};
@@ -55,12 +56,13 @@ export function createContentBlock(
 function replaceText(text: string, rule: Rule): string {
   const { reg, shift } = rule || {};
 
-  return text.replace(reg, shift);
+  if (text.match(reg)) return text.replace(reg, shift);
+  return text;
 }
 
 function getRecordBlock(rules: Array<Rule>, currentContentBlock: ContentBlock): ContentBlock {
   let text = currentContentBlock.getText().slice();
-  for (let i = 0; i < rules.length; i += 1) {
+  for (let i = 0; i < rules.length; i + 1) {
     text = replaceText(text, rules[i]);
   }
   return createContentBlock(currentContentBlock, {

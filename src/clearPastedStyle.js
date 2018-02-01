@@ -7,36 +7,31 @@ export default function clearPastedStyle(
   editorState: EditorState,
   options?: {
     blockTypes?: Array<string>,
-    replaceHeader?: boolean,
     shiftHeader?: string,
-    replaceList?: boolean,
     shiftList?: string,
   }
 ): EditorState {
-  const CS = editorState.getCurrentContent();
-  const SS = editorState.getSelection();
-  const { blockTypes, replaceHeader, shiftHeader, replaceList, shiftList } = options || {};
+  const contentState = editorState.getCurrentContent();
+  const selectionState = editorState.getSelection();
+  const { blockTypes, shiftHeader, shiftList } = options || {};
 
-  const blockMap = CS.getBlockMap().map((block: ContentBlock) => {
+  const blockMap = contentState.getBlockMap().map((block: ContentBlock) => {
+    if (shiftHeader && block.type.slice(0, 6) === 'header') {
+      return createContentBlock(block, { type: shiftHeader });
+    }
+    if (shiftList && block.type.slice(-4) === 'item') {
+      return createContentBlock(block, { type: shiftList });
+    }
     if (blockTypes && blockTypes.indexOf(block.type) === -1) {
       return createContentBlock(block, { type: 'unstyled' });
     }
-
-    if (replaceHeader && block.type.slice(0, 6) === 'header') {
-      return createContentBlock(block, { type: shiftHeader });
-    }
-
-    if (replaceList && block.type.slice(-4) === 'item') {
-      return createContentBlock(block, { type: shiftList });
-    }
-
     if (!blockTypes) return createContentBlock(block, { type: 'unstyled' });
 
     return block;
   });
-  const newCS: ContentState = new ContentState({ blockMap });
-  const newEditorState = EditorState.createWithContent(newCS);
-  const ES = EditorState.acceptSelection(newEditorState, SS);
+  const newContentState: ContentState = new ContentState({ blockMap });
+  const newEditorState = EditorState.createWithContent(newContentState);
+  const finalEditorState = EditorState.acceptSelection(newEditorState, selectionState);
 
-  return ES;
+  return finalEditorState;
 }
