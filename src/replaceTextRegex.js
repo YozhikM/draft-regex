@@ -5,32 +5,31 @@ import {
   EditorState,
   SelectionState,
   ContentState,
-  ContentBlock,
+  ContentBlock
 } from 'draft-js';
 
 type Rule = { reg: RegExp, shift: string };
 
 type Options = {
-  [key: string]: boolean,
+  [key: string]: boolean
 };
 
 type OptionsObj = { [key: string]: Array<Rule> };
 
 const typoRules: Array<Rule> = [
   { reg: new RegExp(/"([^"]+)"/g), shift: '«$1»' }, // меняем кавычки на елочки
-  { reg: new RegExp(/\s+/g), shift: ' ' }, // удаляем лишние пробелы
   { reg: new RegExp(/(^|[^!?:;,.…]) ([!?:;,.…])(?!\))/g), shift: '$1$2' }, // удаляем лишние пробелы перед пунктуацией
-  { reg: new RegExp(/([А-Я][,.!?;…–])+?([А-Я])/gi), shift: '$1 $2' }, // ставим пробелы после пунктуации
+  { reg: new RegExp(/([А-Я][,.!?;…–])+?([А-Я])/gi), shift: '$1 $2' } // ставим пробелы после пунктуации
 ];
 
-const optionRules: OptionsObj = {};
+const optionRules: OptionsObj = { extraSpaces: [{ reg: new RegExp(/\s+/g), shift: ' ' }] }; // удаляем лишние пробелы
 
 function createSelectionState(key: string, start: number = 0, end?: number): SelectionState {
   return new SelectionState({
     anchorKey: key,
     anchorOffset: start,
     focusKey: key,
-    focusOffset: end || start,
+    focusOffset: end || start
   });
 }
 
@@ -40,7 +39,7 @@ export function createContentBlock(
     text?: string,
     key?: string,
     type?: string,
-    characterList?: Array<CharacterMetadata>,
+    characterList?: Array<CharacterMetadata>
   }
 ): ContentBlock {
   const { text, key, type, characterList } = options || {};
@@ -49,7 +48,7 @@ export function createContentBlock(
     text: text || block.getText(),
     key: key || block.getKey(),
     type: type || block.getType(),
-    characterList: characterList || block.getCharacterList(),
+    characterList: characterList || block.getCharacterList()
   });
 }
 
@@ -67,7 +66,7 @@ function getRecordBlock(rules: Array<Rule>, currentContentBlock: ContentBlock): 
   }
   return createContentBlock(currentContentBlock, {
     text,
-    key: currentContentBlock.getKey(),
+    key: currentContentBlock.getKey()
   });
 }
 

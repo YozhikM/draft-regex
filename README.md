@@ -94,13 +94,15 @@ A third argument can take an object that can contain `options`, which you can ex
 
 `extraSpaces` are simple regular expressions that forbid doing more than one space in a row.
 
+```{ extraSpaces: true }```
+
 All regular expressions are used once in the entire text. If you use a lot of regular expressions, the performance of the editor can drop noticeably.
 
 ````js
 function replaceTextRegex(
   editorState: EditorState,
   rulesArray?: Array<Rule> = typoRules,
-  options?: Options = { extraSpaces: true }
+  options?: Options
 ): EditorState
 ````
 
