@@ -1,6 +1,6 @@
 {
   "name": "draft-regex",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Plugin for checking text with regular expressions",
   "main": "build/index.js",
   "scripts": {

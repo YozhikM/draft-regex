@@ -4,7 +4,7 @@ module.exports = {
     browser: true,
   },
   parser: 'babel-eslint',
-  extends: ['airbnb', 'prettier', 'plugin:flowtype/recommended'],
+  extends: ['airbnb', 'prettier', 'plugin:flowtype/recommended', 'plugin:unicorn/recommended', "plugin:array-func/recommended"],
   plugins: [
     'import',
     'flowtype',
@@ -15,13 +15,23 @@ module.exports = {
   ],
   rules: {
     'react/jsx-filename-extension': 0,
-    'jsx-a11y/anchor-is-valid': 0,
-    'jsx-a11y/label-has-for': 0,
-    'class-methods-use-this': 0,
+	"unicorn/filename-case": 0,
+    "immutable/no-this": 2,
+    "immutable/no-mutation": 2,
+	'prettier/prettier': [
+      "error",
+      {
+        "printWidth": 100,
+        "singleQuote": true,
+        "trailingComma": "es5"
+      }
+    ]
   },
   globals: {
     describe: true,
     it: true,
-    expect: true
+    expect: true,
+	shallow: true,
+	jest: true,
   }
 };
