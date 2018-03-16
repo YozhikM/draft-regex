@@ -1,7 +1,9 @@
 
 # Draft Regex
 
+[![npm](https://img.shields.io/npm/dt/draft-regex.svg)](http://www.npmtrends.com/draft-regex)
 [![Greenkeeper badge](https://badges.greenkeeper.io/YozhikM/draft-regex.svg)](https://greenkeeper.io/)
+![FlowType compatible](https://img.shields.io/badge/flowtype-compatible-brightgreen.svg)
 
 These plugins are written for Draft.js and React to improve TextEditor capabilities.
 
