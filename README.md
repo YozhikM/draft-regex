@@ -1,4 +1,3 @@
-
 # Draft Regex
 
 [![npm](https://img.shields.io/npm/dt/draft-regex.svg)](http://www.npmtrends.com/draft-regex)
@@ -14,40 +13,34 @@ To use static typing, make sure [that you have installed Flow](https://flow.org/
 ```
 npm install draft-regex
 ```
+
 or
+
 ```
 yarn add draft-regex
 ```
 
 ## How to use
 
-````js
-import * as React from "react";
-import { EditorState, Editor } from "draft-js";
-import {
-  clearEmptyBlocks,
-  clearPastedStyle,
-  replaceTextRegex
-} from "draft-regex";
+```js
+import * as React from 'react';
+import { EditorState, Editor } from 'draft-js';
+import { clearEmptyBlocks, clearPastedStyle, replaceTextRegex } from 'draft-regex';
 
 type State = {
-  editorState: EditorState
+  editorState: EditorState,
 };
 
 class MyEditor extends React.Component<void, State> {
   state: State = {
-    editorState: EditorState.createEmpty()
+    editorState: EditorState.createEmpty(),
   };
 
   onChange = (editorState: EditorState) => {
     this.setState({ editorState: clearEmptyBlocks(editorState) });
   };
 
-  handlePastedText = (
-    text: ?string,
-    html: ?string,
-    editorState: EditorState
-  ) => {
+  handlePastedText = (text: ?string, html: ?string, editorState: EditorState) => {
     this.setState({ editorState: clearPastedStyle(editorState) });
   };
 
@@ -70,7 +63,7 @@ class MyEditor extends React.Component<void, State> {
     );
   }
 }
-````
+```
 
 ## API
 
@@ -82,9 +75,9 @@ Prevents the ability to add blank lines more than 3 (varies in settings).
 
 A second argument can take a `number` for remove blank lines (number + 1).
 
-````js
+```js
 function clearEmptyBlocks(editorState: EditorState, maxEmptyLines?: number = 2): EditorState
-````
+```
 
 ### replaceTextRegex
 
@@ -92,25 +85,19 @@ Apply regular expressions to the entire text, in the process of typing or after 
 
 A second argument can take an array of rules. `typoRules` is a set of basic rules that you can not use.
 
-A third argument can take an object that can contain `options`, which you can expand to use the plugin is very flexible.
-
-`extraSpaces` are simple regular expressions that forbid doing more than one space in a row.
-
-```{ extraSpaces: true }```
-
 All regular expressions are used once in the entire text. If you use a lot of regular expressions, the performance of the editor can drop noticeably.
 
-````js
+```js
 function replaceTextRegex(
   editorState: EditorState,
   rulesArray?: Array<Rule> = typoRules,
-  options?: Options
 ): EditorState
-````
+```
 
 The rule looks like this: `{ reg: new RegExp(), shift: '' }`
 
 ### clearPastedStyle
+
 Clears styles of copy/pasted text to those that you have.
 
 A second argument can take an object that can contain `options`.
@@ -123,8 +110,7 @@ If you do not want to use all six kinds of headings, you can bring the headers t
 
 The same applies to lists.
 
-
-````js
+```js
 function clearPastedStyle(
   editorState: EditorState,
   options?: {
@@ -133,7 +119,7 @@ function clearPastedStyle(
     shiftList?: string,
   }
 ): EditorState
-````
+```
 
 ## Hints
 
