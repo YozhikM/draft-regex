@@ -20,9 +20,8 @@ const typoRules: Array<Rule> = [
   { reg: new RegExp(/"([^"]+)"/g), shift: '«$1»' },
   { reg: new RegExp(/(^|[^!?:;,.…]) ([!?:;,.…])(?!\))/g), shift: '$1$2' },
   { reg: new RegExp(/([A-Z][,.!?;…–])+?([A-Z])/gi), shift: '$1 $2' },
+  { reg: new RegExp(/\s+/g), shift: ' ' },
 ];
-
-const optionRules: OptionsObj = { extraSpaces: [{ reg: new RegExp(/\s+/g), shift: ' ' }] };
 
 function createSelectionState(key: string, start: number = 0, end?: number): SelectionState {
   return new SelectionState({
@@ -98,27 +97,9 @@ function applyMatchedRules(rules: Array<Rule>, editorState: EditorState): Editor
   return editorState;
 }
 
-function prepareOptionableRules(options: Options): Array<Rule> {
-  const acc: Array<Rule> = [];
-  Object.keys(options).forEach(key => {
-    acc.push(...optionRules[key]);
-    return acc;
-  });
-  if (acc.length > 0) return acc;
-  return [];
-}
-
 export default function replaceTextRegex(
   editorState: EditorState,
-  rulesArray?: Array<Rule> = typoRules,
-  options?: Options
+  rulesArray?: Array<Rule> = typoRules
 ): EditorState {
-  const optionableRules: Array<Rule> = [];
-  if (options) {
-    const preparedRules = prepareOptionableRules(options);
-    optionableRules.push(...preparedRules);
-  }
-  const rules = options ? rulesArray.concat(optionableRules) : rulesArray;
-
-  return applyMatchedRules(rules, editorState);
+  return applyMatchedRules(rulesArray, editorState);
 }
