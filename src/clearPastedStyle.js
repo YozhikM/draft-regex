@@ -31,7 +31,7 @@ export default function clearPastedStyle(
   });
   const newContentState: ContentState = new ContentState({ blockMap });
   const newEditorState = EditorState.createWithContent(newContentState);
-  const finalEditorState = EditorState.acceptSelection(newEditorState, selectionState);
+  const finalEditorState = EditorState.forceSelection(newEditorState, selectionState);
 
   return finalEditorState;
 }
