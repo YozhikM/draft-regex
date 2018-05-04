@@ -9,7 +9,7 @@ These plugins are written for Draft.js and React to improve TextEditor capabilit
 
 To use static typing, make sure [that you have installed Flow](https://flow.org/en/docs/install).
 
-#Requirements
+## Requirements
 
 ```bash
 draft-js: ^0.10.0,
