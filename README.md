@@ -9,15 +9,23 @@ These plugins are written for Draft.js and React to improve TextEditor capabilit
 
 To use static typing, make sure [that you have installed Flow](https://flow.org/en/docs/install).
 
+#Requirements
+
+```bash
+draft-js: ^0.10.0,
+react: ^16.0.0,
+react-dom: ^16.0.0
+```
+
 ## Getting started
 
-```
+```bash
 npm install draft-regex
 ```
 
 or
 
-```
+```bash
 yarn add draft-regex
 ```
 
