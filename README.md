@@ -11,11 +11,9 @@ To use static typing, make sure [that you have installed Flow](https://flow.org/
 
 ## Requirements
 
-```bash
-draft-js: ^0.10.0,
-react: ^16.0.0,
-react-dom: ^16.0.0
-```
+[draft-js](https://github.com/facebook/draft-js)
+[react](https://github.com/facebook/react)
+[react-dom](https://github.com/facebook/react)
 
 ## Getting started
 
