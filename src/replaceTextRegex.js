@@ -10,12 +10,6 @@ import {
 
 type Rule = { reg: RegExp, shift: string };
 
-type Options = {
-  [key: string]: boolean,
-};
-
-type OptionsObj = { [key: string]: Array<Rule> };
-
 const typoRules: Array<Rule> = [
   { reg: new RegExp(/"([^"]+)"/g), shift: '«$1»' },
   { reg: new RegExp(/(^|[^!?:;,.…]) ([!?:;,.…])(?!\))/g), shift: '$1$2' },
