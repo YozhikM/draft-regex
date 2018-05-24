@@ -54,7 +54,7 @@
     "eslint-plugin-react": "^7.8.2",
     "eslint-plugin-standard": "^3.1.0",
     "eslint-plugin-unicorn": "^4.0.3",
-    "flow-bin": "^0.72.0",
+    "flow-bin": "^0.73.0",
     "jest": "^22.4.3",
     "prettier": "^1.12.1",
     "raf": "^3.4.0",
