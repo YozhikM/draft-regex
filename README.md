@@ -1,5 +1,6 @@
 # Draft Regex
 
+[![NPM version](http://img.shields.io/npm/v/draft-regex.svg)](https://www.npmjs.org/package/draft-regex)
 [![npm](https://img.shields.io/npm/dt/draft-regex.svg)](http://www.npmtrends.com/draft-regex)
 [![install size](https://packagephobia.now.sh/badge?p=draft-regex@1.2.3)](https://packagephobia.now.sh/result?p=draft-regex@1.2.3)
 [![Greenkeeper badge](https://badges.greenkeeper.io/YozhikM/draft-regex.svg)](https://greenkeeper.io/)
