@@ -4,19 +4,9 @@ module.exports = {
     browser: true,
   },
   parser: 'babel-eslint',
-  extends: [
-    'airbnb',
-    'prettier',
-    'plugin:flowtype/recommended',
-    'plugin:unicorn/recommended',
-    'plugin:array-func/recommended',
-  ],
-  plugins: ['import', 'flowtype', 'prettier', 'unicorn', 'immutable', 'array-func'],
+  extends: ['prettier', 'plugin:flowtype/recommended'],
+  plugins: ['import', 'flowtype', 'prettier'],
   rules: {
-    'react/jsx-filename-extension': 0,
-    'unicorn/filename-case': 0,
-    'immutable/no-this': 2,
-    'immutable/no-mutation': 2,
     'prettier/prettier': [
       'error',
       {
