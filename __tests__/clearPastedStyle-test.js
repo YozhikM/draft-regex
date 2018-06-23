@@ -1,11 +1,11 @@
 /* @flow */
 
-import { EditorState, ContentState, convertFromHTML } from "draft-js";
-import { pastedHTMLWOOptions, pastedHTMLBlockTypes } from "../mocks/pastedHTML";
-import clearPastedStyle from "../src/clearPastedStyle";
+import { EditorState, ContentState, convertFromHTML } from 'draft-js';
+import { pastedHTMLWOOptions, pastedHTMLBlockTypes } from '../mocks/pastedHTML';
+import clearPastedStyle from '../src/clearPastedStyle';
 
-describe("clearPastedStyle", () => {
-  it("clearPastedStyle WO options", () => {
+describe('clearPastedStyle', () => {
+  it('clearPastedStyle WO options', () => {
     const blocks = convertFromHTML(pastedHTMLWOOptions);
     const contentState = ContentState.createFromBlockArray(blocks);
     const editorState = EditorState.createWithContent(contentState);
@@ -18,7 +18,7 @@ describe("clearPastedStyle", () => {
         types.push(block.getType());
       });
 
-    expect(types).toEqual(["unordered-list-item", "unordered-list-item"]);
+    expect(types).toEqual(['unordered-list-item', 'unordered-list-item']);
 
     const clearEditorState = clearPastedStyle(editorState);
 
@@ -30,10 +30,10 @@ describe("clearPastedStyle", () => {
         newTypes.push(block.getType());
       });
 
-    expect(newTypes).toEqual(["unstyled", "unstyled"]);
+    expect(newTypes).toEqual(['unstyled', 'unstyled']);
   });
 
-  it("clearPastedStyle with blockTypes", () => {
+  it('clearPastedStyle with blockTypes', () => {
     const blocks = convertFromHTML(pastedHTMLBlockTypes);
     const contentState = ContentState.createFromBlockArray(blocks);
     const editorState = EditorState.createWithContent(contentState);
@@ -46,10 +46,10 @@ describe("clearPastedStyle", () => {
         types.push(block.getType());
       });
 
-    expect(types).toEqual(["header-three", "code-block", "unstyled"]);
+    expect(types).toEqual(['header-three', 'code-block', 'unstyled']);
 
     const clearEditorState = clearPastedStyle(editorState, {
-      blockTypes: ["header-three"]
+      blockTypes: ['header-three'],
     });
 
     const newTypes = [];
@@ -60,10 +60,10 @@ describe("clearPastedStyle", () => {
         newTypes.push(block.getType());
       });
 
-    expect(newTypes).toEqual(["header-three", "unstyled", "unstyled"]);
+    expect(newTypes).toEqual(['header-three', 'unstyled', 'unstyled']);
   });
 
-  it("clearPastedStyle with replaceHeader", () => {
+  it('clearPastedStyle with replaceHeader', () => {
     const blocks = convertFromHTML(pastedHTMLBlockTypes);
     const contentState = ContentState.createFromBlockArray(blocks);
     const editorState = EditorState.createWithContent(contentState);
@@ -76,11 +76,11 @@ describe("clearPastedStyle", () => {
         types.push(block.getType());
       });
 
-    expect(types).toEqual(["header-three", "code-block", "unstyled"]);
+    expect(types).toEqual(['header-three', 'code-block', 'unstyled']);
 
     const clearEditorState = clearPastedStyle(editorState, {
       replaceHeader: true,
-      shiftHeader: "header-one"
+      shiftHeader: 'header-one',
     });
 
     const newTypes = [];
@@ -91,10 +91,10 @@ describe("clearPastedStyle", () => {
         newTypes.push(block.getType());
       });
 
-    expect(newTypes).toEqual(["header-one", "unstyled", "unstyled"]);
+    expect(newTypes).toEqual(['header-one', 'unstyled', 'unstyled']);
   });
 
-  it("clearPastedStyle with replaceList", () => {
+  it('clearPastedStyle with replaceList', () => {
     const blocks = convertFromHTML(pastedHTMLWOOptions);
     const contentState = ContentState.createFromBlockArray(blocks);
     const editorState = EditorState.createWithContent(contentState);
@@ -107,11 +107,11 @@ describe("clearPastedStyle", () => {
         types.push(block.getType());
       });
 
-    expect(types).toEqual(["unordered-list-item", "unordered-list-item"]);
+    expect(types).toEqual(['unordered-list-item', 'unordered-list-item']);
 
     const clearEditorState = clearPastedStyle(editorState, {
       replaceList: true,
-      shiftList: "ordered-list-item"
+      shiftList: 'ordered-list-item',
     });
 
     const newTypes = [];
@@ -122,6 +122,6 @@ describe("clearPastedStyle", () => {
         newTypes.push(block.getType());
       });
 
-    expect(newTypes).toEqual(["ordered-list-item", "ordered-list-item"]);
+    expect(newTypes).toEqual(['ordered-list-item', 'ordered-list-item']);
   });
 });

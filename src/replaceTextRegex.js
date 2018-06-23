@@ -81,7 +81,9 @@ function applyMatchedRules(rules: Array<Rule>, editorState: EditorState): Editor
   }
 
   const newSelectionState = createSelectionState(anchorKey, anchorOffset - diffInLengths);
-  const newContentState: ContentState = new ContentState({ blockMap: newBlockMap });
+  const newContentState: ContentState = new ContentState({
+    blockMap: newBlockMap,
+  });
   const newEditorState = EditorState.createWithContent(newContentState);
   const forcedEditorState = EditorState.forceSelection(newEditorState, newSelectionState);
 
