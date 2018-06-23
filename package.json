@@ -1,7 +1,7 @@
 {
   "name": "draft-regex",
-  "version": "1.2.3",
-  "description": "Plugin for checking text with regular expressions",
+  "version": "1.3.0",
+  "description": "Helpers for draft-js",
   "main": "build/index.js",
   "scripts": {
     "start": "parcel app/index.html",
