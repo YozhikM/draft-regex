@@ -1,6 +1,5 @@
 /* @flow */
 
-import { describe, it, expect } from 'jest';
 import { EditorState, ContentState, convertFromHTML } from 'draft-js';
 import { pastedHTMLWOOptions, pastedHTMLBlockTypes } from '../mocks/pastedHTML';
 import clearPastedStyle from '../src/clearPastedStyle';
