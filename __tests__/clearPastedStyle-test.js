@@ -1,5 +1,6 @@
 /* @flow */
 
+import { describe, it, expect } from 'jest';
 import { EditorState, ContentState, convertFromHTML } from 'draft-js';
 import { pastedHTMLWOOptions, pastedHTMLBlockTypes } from '../mocks/pastedHTML';
 import clearPastedStyle from '../src/clearPastedStyle';
@@ -7,6 +8,7 @@ import clearPastedStyle from '../src/clearPastedStyle';
 describe('clearPastedStyle', () => {
   it('clearPastedStyle WO options', () => {
     const blocks = convertFromHTML(pastedHTMLWOOptions);
+    if (!blocks || !Array.isArray(blocks) || !blocks.length) return;
     const contentState = ContentState.createFromBlockArray(blocks);
     const editorState = EditorState.createWithContent(contentState);
 
@@ -35,6 +37,7 @@ describe('clearPastedStyle', () => {
 
   it('clearPastedStyle with blockTypes', () => {
     const blocks = convertFromHTML(pastedHTMLBlockTypes);
+    if (!blocks || !Array.isArray(blocks) || !blocks.length) return;
     const contentState = ContentState.createFromBlockArray(blocks);
     const editorState = EditorState.createWithContent(contentState);
 
@@ -65,6 +68,7 @@ describe('clearPastedStyle', () => {
 
   it('clearPastedStyle with replaceHeader', () => {
     const blocks = convertFromHTML(pastedHTMLBlockTypes);
+    if (!blocks || !Array.isArray(blocks) || !blocks.length) return;
     const contentState = ContentState.createFromBlockArray(blocks);
     const editorState = EditorState.createWithContent(contentState);
 
@@ -96,6 +100,7 @@ describe('clearPastedStyle', () => {
 
   it('clearPastedStyle with replaceList', () => {
     const blocks = convertFromHTML(pastedHTMLWOOptions);
+    if (!blocks || !Array.isArray(blocks) || !blocks.length) return;
     const contentState = ContentState.createFromBlockArray(blocks);
     const editorState = EditorState.createWithContent(contentState);
 

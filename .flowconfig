@@ -1,5 +1,6 @@
 [ignore]
-.*/node_modules/draft-js/*
+.*/node_modules/draft-js/lib/ContentBlockNode.js.flow
+.*/node_modules/draft-js/lib/ContentBlock.js.flow
 
 [include]
 
