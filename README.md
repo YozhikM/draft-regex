@@ -6,9 +6,7 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/YozhikM/draft-regex.svg)](https://greenkeeper.io/)
 ![FlowType compatible](https://img.shields.io/badge/flowtype-compatible-brightgreen.svg)
 
-These plugins are written for Draft.js and React to improve TextEditor capabilities.
-
-To use static typing, make sure [that you have installed Flow](https://flow.org/en/docs/install).
+These helpers are written for Draft.js to improve Editor capabilities.
 
 ## Requirements
 
@@ -75,7 +73,7 @@ class MyEditor extends React.Component<void, State> {
 
 ## API
 
-All plugin as an argument are taken by EditorState and options and returned EditorState.
+All helpers are taken by EditorState and options as an argument and returned EditorState.
 
 ### clearEmptyBlocks
 
