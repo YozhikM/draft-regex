@@ -50,7 +50,7 @@
     "prettier": "^1.13.5",
     "raf": "^3.4.0",
     "react": "^16.5.2",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.5.2"
   },
   "prettier": {
     "printWidth": 100,
