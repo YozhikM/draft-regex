@@ -43,7 +43,7 @@
     "eslint": "^5.0.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-flowtype": "^2.49.3",
-    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-prettier": "^2.6.1",
     "flow-bin": "^0.75.0",
     "jest": "^23.1.0",
